@@ -1,155 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Set the character encoding for the page -->
   <meta charset="UTF-8">
+  <!-- Make the page responsive on mobile devices -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photo Portfolio</title>
+  <!-- Page title that appears in the browser tab -->
+  <title>My Portfolio</title>
+  
+  <!-- Internal CSS styles - all styling is defined here -->
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
+    /* Reset default browser margins and padding for consistent look */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    /* Set base font and background for entire page */
     body {
-      background: #111;
-      color: #fff;
-      font-family: -apple-system, Helvetica Neue, Arial, sans-serif;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f5f5;
+      padding: 20px;
     }
-
+    
+    /* Container to center content and limit width */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    /* Header section styling */
     header {
-      padding: 3rem 2rem 2rem;
       text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #e0e0e0;
     }
-
-    header h1 {
-      font-size: 1.4rem;
-      font-weight: 400;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
+    
+    /* Profile image styling */
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid #333;
     }
-
-    .gallery {
-      columns: 3;
-      column-gap: 6px;
-      padding: 0 6px 6px;
+    
+    /* Main heading (name) styling */
+    h1 {
+      color: #222;
+      margin-bottom: 10px;
+      font-size: 2.5em;
     }
-
-    .gallery img {
-      width: 100%;
-      display: block;
-      margin-bottom: 6px;
-      cursor: pointer;
-      transition: opacity 0.2s;
+    
+    /* Subtitle styling */
+    .subtitle {
+      color: #666;
+      font-size: 1.2em;
+      font-weight: normal;
     }
-
-    .gallery img:hover {
-      opacity: 0.85;
+    
+    /* Section headings styling */
+    h2 {
+      color: #333;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e0e0e0;
     }
-
-    /* Lightbox */
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.95);
-      z-index: 10;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
+    
+    /* Paragraph text styling */
+    p {
+      margin-bottom: 15px;
+      color: #555;
     }
-
-    .lightbox.active {
-      display: flex;
+    
+    /* Project item container */
+    .project {
+      margin-bottom: 25px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      border-left: 4px solid #333;
     }
-
-    .lightbox img {
-      max-width: 92vw;
-      max-height: 92vh;
-      object-fit: contain;
+    
+    /* Project title styling */
+    .project h3 {
+      color: #222;
+      margin-bottom: 8px;
     }
-
-    @media (max-width: 900px) {
-      .gallery { columns: 2; }
+    
+    /* Contact links styling */
+    .contact-links {
+      list-style: none;
+      padding: 0;
     }
-
-    @media (max-width: 500px) {
-      .gallery { columns: 1; }
-      header { padding: 2rem 1rem 1.5rem; }
+    
+    .contact-links li {
+      margin-bottom: 10px;
+    }
+    
+    .contact-links a {
+      color: #333;
+      text-decoration: none;
+      padding: 8px 15px;
+      display: inline-block;
+      border: 1px solid #333;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    
+    /* Hover effect for links */
+    .contact-links a:hover {
+      background-color: #333;
+      color: white;
     }
   </style>
 </head>
 <body>
-
-<header>
-  <h1>Portfolio</h1>
-</header>
-
-<div class="gallery">
-  <img src="images/DSC06125-01.jpeg" alt="" loading="lazy">
-  <img src="images/eagle.jpeg" alt="" loading="lazy">
-  <img src="images/DSC02732-04.jpeg" alt="" loading="lazy">
-  <img src="images/lamiradaelena.JPEG" alt="" loading="lazy">
-  <img src="images/DSC07534.JPG" alt="" loading="lazy">
-  <img src="images/azores.jpg" alt="" loading="lazy">
-  <img src="images/birds-06.jpeg" alt="" loading="lazy">
-  <img src="images/DSC04141-03.jpeg" alt="" loading="lazy">
-  <img src="images/DSC02689-01.jpeg" alt="" loading="lazy">
-  <img src="images/sombrasVentanaDEF.png" alt="" loading="lazy">
-  <img src="images/DSC05174-01-01.jpeg" alt="" loading="lazy">
-  <img src="images/stars_insta.JPG" alt="" loading="lazy">
-  <img src="images/vaso.png" alt="" loading="lazy">
-  <img src="images/pavoReal.jpeg" alt="" loading="lazy">
-  <img src="images/DSC02987-01-01.jpeg" alt="" loading="lazy">
-  <img src="images/saltoRuidera.jpeg" alt="" loading="lazy">
-  <img src="images/ManoenlaVentana.png" alt="" loading="lazy">
-  <img src="images/mari_2.jpeg" alt="" loading="lazy">
-  <img src="images/SillaTecho.jpeg" alt="" loading="lazy">
-  <img src="images/DSC06842 2.jpeg" alt="" loading="lazy">
-  <img src="images/miventanadesdearanjuez.JPEG" alt="" loading="lazy">
-  <img src="images/final.JPG" alt="" loading="lazy">
-  <img src="images/DSC06897.jpeg" alt="" loading="lazy">
-  <img src="images/IMG_1092.JPG" alt="" loading="lazy">
-  <img src="images/Fotor_149582890579282.jpeg" alt="" loading="lazy">
-  <img src="images/IMG_20170512_175620_254.jpg" alt="" loading="lazy">
-  <img src="images/astronautaWARM.png" alt="" loading="lazy">
-  <img src="images/GlassCrack.png" alt="" loading="lazy">
-  <img src="images/DSC_0094 copy.JPG" alt="" loading="lazy">
-  <img src="images/rui-Recuperado.jpg" alt="" loading="lazy">
-  <img src="images/Fotor_152878380491724.jpg" alt="" loading="lazy">
-  <img src="images/4_6001327737929729478-01.jpeg" alt="" loading="lazy">
-  <img src="images/IMG_1463.JPG" alt="" loading="lazy">
-  <img src="images/DSC03055 2.jpeg" alt="" loading="lazy">
-  <img src="images/astronauta.png" alt="" loading="lazy">
-  <img src="images/azores.png" alt="" loading="lazy">
-  <img src="images/imán.jpg" alt="" loading="lazy">
-  <img src="images/Screenshot 2020-08-03 at 13.58.57.png" alt="" loading="lazy">
-  <img src="images/Screenshot 2022-12-15 at 16.48.34.png" alt="" loading="lazy">
-</div>
-
-<div class="lightbox" id="lightbox">
-  <img id="lightbox-img" src="" alt="">
-</div>
-
-<script>
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-
-  document.querySelectorAll('.gallery img').forEach(img => {
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightbox.classList.add('active');
-    });
-  });
-
-  lightbox.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-    lightboxImg.src = '';
-  });
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      lightbox.classList.remove('active');
-      lightboxImg.src = '';
-    }
-  });
-</script>
-
+  <!-- Main container that holds all content -->
+  <div class="container">
+    
+    <!-- Header section with profile image and name -->
+    <header>
+      <!-- Profile image - update src to your image path -->
+      <img src="images/astronautaWARM.png" alt="Profile Photo" class="profile-img">
+      
+      <!-- Your name - change this to your actual name -->
+      <h1>Your Name</h1>
+      
+      <!-- Your title/role - change this to your profession -->
+      <p class="subtitle">Web Developer | Designer</p>
+    </header>
+    
+    <!-- About section - describe yourself here -->
+    <section id="about">
+      <h2>About Me</h2>
+      <!-- Update this paragraph with your own description -->
+      <p>
+        Welcome to my portfolio! I'm a passionate developer who loves creating 
+        clean and functional web experiences. I enjoy working on projects that 
+        combine creativity with technical skills.
+      </p>
+      <p>
+        When I'm not coding, I enjoy exploring new technologies and contributing 
+        to open-source projects.
+      </p>
+    </section>
+    
+    <!-- Projects section - list your projects here -->
+    <section id="projects">
+      <h2>Projects</h2>
+      
+      <!-- Project 1 - add your first project details -->
+      <div class="project">
+        <h3>Project Name 1</h3>
+        <p>
+          Brief description of your project. Explain what it does, 
+          what technologies you used, and what you learned.
+        </p>
+      </div>
+      
+      <!-- Project 2 - add your second project details -->
+      <div class="project">
+        <h3>Project Name 2</h3>
+        <p>
+          Another project description. You can add as many projects 
+          as you want by copying this project div.
+        </p>
+      </div>
+      
+      <!-- Add more projects by copying the project div above -->
+    </section>
+    
+    <!-- Contact section - add your contact information -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Feel free to reach out to me through any of these channels:</p>
+      
+      <!-- Contact links list -->
+      <ul class="contact-links">
+        <!-- Email link - update href with your email -->
+        <li>
+          <a href="mailto:your.email@example.com">Email Me</a>
+        </li>
+        
+        <!-- GitHub link - update href with your GitHub profile -->
+        <li>
+          <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+        </li>
+        
+        <!-- LinkedIn link - update href with your LinkedIn profile -->
+        <li>
+          <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+        </li>
+        
+        <!-- Add more contact links by copying the li elements above -->
+      </ul>
+    </section>
+    
+  </div>
+  <!-- End of main container -->
 </body>
 </html>

@@ -1,6 +1,155 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <img src="astronauta.png" alt="My photo" width="400">
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #111;
+      color: #fff;
+      font-family: -apple-system, Helvetica Neue, Arial, sans-serif;
+    }
+
+    header {
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .gallery {
+      columns: 3;
+      column-gap: 6px;
+      padding: 0 6px 6px;
+    }
+
+    .gallery img {
+      width: 100%;
+      display: block;
+      margin-bottom: 6px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .gallery img:hover {
+      opacity: 0.85;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 10;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 92vh;
+      object-fit: contain;
+    }
+
+    @media (max-width: 900px) {
+      .gallery { columns: 2; }
+    }
+
+    @media (max-width: 500px) {
+      .gallery { columns: 1; }
+      header { padding: 2rem 1rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Portfolio</h1>
+</header>
+
+<div class="gallery">
+  <img src="photos/DSC06125-01.jpeg" alt="" loading="lazy">
+  <img src="photos/eagle.jpeg" alt="" loading="lazy">
+  <img src="photos/DSC02732-04.jpeg" alt="" loading="lazy">
+  <img src="photos/lamiradaelena.JPEG" alt="" loading="lazy">
+  <img src="photos/DSC07534.JPG" alt="" loading="lazy">
+  <img src="photos/azores.jpg" alt="" loading="lazy">
+  <img src="photos/birds-06.jpeg" alt="" loading="lazy">
+  <img src="photos/DSC04141-03.jpeg" alt="" loading="lazy">
+  <img src="photos/DSC02689-01.jpeg" alt="" loading="lazy">
+  <img src="photos/sombrasVentanaDEF.png" alt="" loading="lazy">
+  <img src="photos/DSC05174-01-01.jpeg" alt="" loading="lazy">
+  <img src="photos/stars_insta.JPG" alt="" loading="lazy">
+  <img src="photos/vaso.png" alt="" loading="lazy">
+  <img src="photos/pavoReal.jpeg" alt="" loading="lazy">
+  <img src="photos/DSC02987-01-01.jpeg" alt="" loading="lazy">
+  <img src="photos/saltoRuidera.jpeg" alt="" loading="lazy">
+  <img src="photos/ManoenlaVentana.png" alt="" loading="lazy">
+  <img src="photos/mari_2.jpeg" alt="" loading="lazy">
+  <img src="photos/SillaTecho.jpeg" alt="" loading="lazy">
+  <img src="photos/DSC06842 2.jpeg" alt="" loading="lazy">
+  <img src="photos/miventanadesdearanjuez.JPEG" alt="" loading="lazy">
+  <img src="photos/final.JPG" alt="" loading="lazy">
+  <img src="photos/DSC06897.jpeg" alt="" loading="lazy">
+  <img src="photos/IMG_1092.JPG" alt="" loading="lazy">
+  <img src="photos/Fotor_149582890579282.jpeg" alt="" loading="lazy">
+  <img src="photos/IMG_20170512_175620_254.jpg" alt="" loading="lazy">
+  <img src="photos/astronautaWARM.png" alt="" loading="lazy">
+  <img src="photos/GlassCrack.png" alt="" loading="lazy">
+  <img src="photos/DSC_0094 copy.JPG" alt="" loading="lazy">
+  <img src="photos/rui-Recuperado.jpg" alt="" loading="lazy">
+  <img src="photos/Fotor_152878380491724.jpg" alt="" loading="lazy">
+  <img src="photos/4_6001327737929729478-01.jpeg" alt="" loading="lazy">
+  <img src="photos/IMG_1463.JPG" alt="" loading="lazy">
+  <img src="photos/DSC03055 2.jpeg" alt="" loading="lazy">
+  <img src="photos/astronauta.png" alt="" loading="lazy">
+  <img src="photos/azores.png" alt="" loading="lazy">
+  <img src="photos/imán.jpg" alt="" loading="lazy">
+  <img src="photos/Screenshot 2020-08-03 at 13.58.57.png" alt="" loading="lazy">
+  <img src="photos/Screenshot 2022-12-15 at 16.48.34.png" alt="" loading="lazy">
+</div>
+
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  document.querySelectorAll('.gallery img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add('active');
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+    lightboxImg.src = '';
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      lightbox.classList.remove('active');
+      lightboxImg.src = '';
+    }
+  });
+</script>
+
+</body>
 </html>

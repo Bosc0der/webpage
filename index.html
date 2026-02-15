@@ -6,62 +6,225 @@
   <title>Photo Portfolio</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #111; font-family: Arial, sans-serif; }
-    header { padding: 3rem 2rem 2rem; text-align: center; }
-    h1 { color: #fff; font-size: 1.4rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; }
-    .gallery { columns: 3; column-gap: 6px; padding: 0 6px 6px; }
-    .gallery img { width: 100%; display: block; margin-bottom: 6px; }
-    @media (max-width: 900px) { .gallery { columns: 2; } }
-    @media (max-width: 500px) { .gallery { columns: 1; } header { padding: 2rem 1rem 1.5rem; } }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: "Computer Modern Serif", "Latin Modern Roman", Georgia, serif;
+    }
+
+    header {
+      padding: 2rem 0 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* Single Images Section */
+    .single-images {
+      padding: 0;
+    }
+
+    .single-images img {
+      width: 100%;
+      display: block;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    /* Side by Side Images Section */
+    .side-by-side {
+      padding: 0;
+    }
+
+    .image-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin: 0;
+    }
+
+    .image-pair img {
+      width: 100%;
+      display: block;
+      cursor: pointer;
+    }
+
+    /* Grid Gallery Section */
+    .gallery {
+      columns: 3;
+      column-gap: 0;
+      padding: 0;
+    }
+
+    .gallery img {
+      width: 100%;
+      display: block;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    /* Text Module */
+    .text-block {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: #000;
+    }
+
+    .text-block p {
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #ccc;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 10;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 92vh;
+      object-fit: contain;
+    }
+
+    @media (max-width: 900px) {
+      .gallery { columns: 2; }
+      .image-pair { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 500px) {
+      .gallery { columns: 1; }
+      header { padding: 1.5rem 0 1rem; }
+    }
   </style>
 </head>
 <body>
 
+  <div style="height: 400px;"></div>
 <header>
-  <h1>Portfolio</h1>
+  <h1>Bosco's Portfolio</h1>
 </header>
+<div style="height: 300px;"></div>
 
-<div class="gallery">
-  <img src="images/DSC06125-01.jpeg" alt="">
-  <img src="images/eagle.jpeg" alt="">
-  <img src="images/DSC02732-04.jpeg" alt="">
-  <img src="images/lamiradaelena.JPEG" alt="">
-  <img src="images/DSC07534.JPG" alt="">
-  <img src="images/azores.jpg" alt="">
-  <img src="images/birds-06.jpeg" alt="">
-  <img src="images/DSC04141-03.jpeg" alt="">
-  <img src="images/DSC02689-01.jpeg" alt="">
-  <img src="images/sombrasVentanaDEF.png" alt="">
-  <img src="images/DSC05174-01-01.jpeg" alt="">
-  <img src="images/stars_insta.JPG" alt="">
-  <img src="images/vaso.png" alt="">
-  <img src="images/pavoReal.jpeg" alt="">
-  <img src="images/DSC02987-01-01.jpeg" alt="">
-  <img src="images/saltoRuidera.jpeg" alt="">
-  <img src="images/ManoenlaVentana.png" alt="">
-  <img src="images/mari_2.jpeg" alt="">
-  <img src="images/SillaTecho.jpeg" alt="">
-  <img src="images/DSC06842 2.jpeg" alt="">
-  <img src="images/miventanadesdearanjuez.JPEG" alt="">
-  <img src="images/final.JPG" alt="">
-  <img src="images/DSC06897.jpeg" alt="">
-  <img src="images/IMG_1092.JPG" alt="">
-  <img src="images/Fotor_149582890579282.jpeg" alt="">
-  <img src="images/IMG_20170512_175620_254.jpg" alt="">
-  <img src="images/astronautaWARM.png" alt="">
-  <img src="images/GlassCrack.png" alt="">
-  <img src="images/DSC_0094 copy.JPG" alt="">
-  <img src="images/rui-Recuperado.jpg" alt="">
-  <img src="images/Fotor_152878380491724.jpg" alt="">
-  <img src="images/4_6001327737929729478-01.jpeg" alt="">
-  <img src="images/IMG_1463.JPG" alt="">
-  <img src="images/DSC03055 2.jpeg" alt="">
-  <img src="images/astronauta.png" alt="">
-  <img src="images/azores.png" alt="">
-  <img src="images/imán.jpg" alt="">
-  <img src="images/Screenshot 2020-08-03 at 13.58.57.png" alt="">
-  <img src="images/Screenshot 2022-12-15 at 16.48.34.png" alt="">
+<div style="height: 300px;"></div>
+<div class="text-block">
+  <p>All photographs were captured using either a Sony Alpha 500 or a smartphone. Most images were edited in Photoshop.</p>
 </div>
+<div style="height: 300px;"></div>
+
+<div class="text-block">
+  <p>Click to see the full picture</p>
+</div>
+<div style="height: 500px;"></div>
+
+<!-- Single Featured Images -->
+<div class="single-images">
+  <img src="images/ojo.jpeg" alt="" loading="lazy">
+  <img src="images/eagle.jpeg" alt="" loading="lazy">
+  <img src="images/astronautaWARM.png" alt="" loading="lazy">
+
+
+  <img src="images/DSC07534.JPG" alt="" loading="lazy">
+</div>
+
+<!-- Side by Side Images -->
+<div class="side-by-side">
+  <div class="image-pair">
+    <img src="images/fireworks.jpg" alt="" loading="lazy">
+    <img src="images/mirada2.JPEG" alt="" loading="lazy">
+  </div>
+
+  <div class="image-pair">
+    <img src="images/saltoRuidera.jpeg" alt="" loading="lazy">
+    <img src="images/pavoReal.jpeg" alt="" loading="lazy">
+  </div>
+
+  <div class="image-pair">
+    <img src="images/ramos.jpeg" alt="" loading="lazy">
+    <img src="images/azores.png" alt="" loading="lazy">
+  </div>
+
+  <div class="image-pair">
+    <img src="images/iman.jpeg" alt="" loading="lazy">
+    <img src="images/iman_zoom.jpg" alt="" loading="lazy">
+  </div>
+
+
+
+</div>
+
+<div class="text-block">
+  <p>And many more</p>
+</div>
+
+<!-- Grid Gallery -->
+<div class="gallery">
+
+  <img src="images/plant.jpg" alt="" loading="lazy">
+  <img src="images/ventana.jpg" alt="" loading="lazy">
+  <img src="images/bosque.jpeg" alt="" loading="lazy">
+
+  <img src="images/robot.jpeg" alt="" loading="lazy">
+  <img src="images/astronauta.png" alt="" loading="lazy">
+  <img src="images/rayo.jpeg" alt="" loading="lazy">
+  <img src="images/mirada1.jpeg" alt="" loading="lazy">
+  <img src="images/vaso.png" alt="" loading="lazy">
+  <img src="images/GlassCrack.png" alt="" loading="lazy">
+  <img src="images/sombrasVentanaDEF.png" alt="" loading="lazy">
+  <img src="images/SillaTecho.jpeg" alt="" loading="lazy">
+  <img src="images/astronaut2.JPG" alt="" loading="lazy">
+  <img src="images/stars_insta.JPG" alt="" loading="lazy">
+  <img src="images/flowers.png" alt="" loading="lazy">
+  <img src="images/galaxy.jpeg" alt="" loading="lazy">
+  <img src="images/luna.jpeg" alt="" loading="lazy">
+</div>
+
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  document.querySelectorAll('.single-images img, .side-by-side img, .gallery img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add('active');
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+    lightboxImg.src = '';
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      lightbox.classList.remove('active');
+      lightboxImg.src = '';
+    }
+  });
+</script>
 
 </body>
 </html>
